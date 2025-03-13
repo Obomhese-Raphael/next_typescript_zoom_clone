@@ -5,9 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { avatarImages } from "@/constants";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Key } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "./ui/use-toast";
 
 interface MeetingCardProps {
     title: string;
@@ -45,7 +43,7 @@ const MeetingCard = ({
             </article>
             <article className={cn("flex justify-center relative", {})}>
                 <div className="relative flex w-full max-sm:hidden">
-                    {avatarImages.map((img: string | StaticImport, index: Key | null | undefined) => (
+                    {avatarImages.map((img, index) => (
                         <Image
                             key={index}
                             src={img}
